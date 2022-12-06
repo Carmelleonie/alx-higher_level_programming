@@ -1,1 +1,2 @@
-Write a function that deletes the item at a specific position in a list.
+Write a function that finds all multiples of 2 in a list.
+
