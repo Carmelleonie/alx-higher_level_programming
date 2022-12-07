@@ -1,9 +1,7 @@
 #!/usr/bin/python3
-import math
-def add(a, b):
+from add_0 import add
 
-	return a + b
-a = 1
-b = 2
-	
-print("{:d} + {:d} = {:d}".format(a, b, add(a,b)))
+if __name__ == "__main__":	
+	a = 1
+	b = 2
+	print("{} + {} = {}".format(a, b, add(a,b)))
