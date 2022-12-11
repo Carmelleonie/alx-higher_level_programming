@@ -1,1 +1,1 @@
-cot
+puzzle
