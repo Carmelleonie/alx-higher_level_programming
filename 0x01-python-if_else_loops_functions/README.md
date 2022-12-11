@@ -1,1 +1,1 @@
-positive negative
+def uppercase(str):
