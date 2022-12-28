@@ -1,1 +1,1 @@
-Write a function that returns a list with all values multiplied by a number without using any loops.
+Write a function that prints a dictionary by ordered keys.
