@@ -1,1 +1,1 @@
-Write a function that prints a dictionary by ordered keys.
+Write a function that returns a new dictionary with all values multiplied by 2
