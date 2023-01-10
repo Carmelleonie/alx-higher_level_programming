@@ -1,1 +1,1 @@
-0x0A. Python - Inheritance
+Write a class MyList that inherits from list:
