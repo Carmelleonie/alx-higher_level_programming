@@ -1,0 +1,1 @@
+def uppercase(str):
