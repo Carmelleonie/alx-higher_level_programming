@@ -221,6 +221,21 @@ class TestBase(unittest.TestCase):
             list_output = Square.from_json_string(file1)
             self.assertEqual(list_output, lista)
 
+    def test3_json_to_file3(self):
+        """ test json string into file"""
+        Base._Base__nb_objects = 0
+        s1 = Square(4, 5, 6, 7, 8)
+        s2 = Square(6, 7, 8, 9, 10)
+        s3 = Square(8, 9, 10, 11, 12)
+        Square.save_to_file([s1, s2, s3])
+        lst = [{"x": 5, "size": 4, "id": 1, "y": 0},
+                 {"x": 7, "size": 6, "id": 2, "y": 0},
+                 {"x": 9, "size": 8, "id": 3, "y": 0}]
+        with open("Square.json", "r") as file:
+            file1 = file.read()
+            new_list = Square.from_json_string(file1)
+            self.assertEqual(new_list, lst)
+
     def test4_json_to_file4(self):
         """ test json string into file"""
         Base._Base__nb_objects = 0

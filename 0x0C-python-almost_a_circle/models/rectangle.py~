@@ -2,19 +2,18 @@
 from models.base import Base
 class Rectangle(Base):
     def __init__(self, width, height, x=0, y=0, id=None):
-            super.__init__((id):
-            self.width = width
-            self.height = height
-            self.x = x
-            self.y = y
+            super().__init__(id)
+            self.__width = width
+            self.__height = height
+            self.__x = x
+            self.__y = y
 
+    """width, height, x, y must be an integer
+            if not raise TypeError"""
+    """get and set the the parameter of the class using getter and setter"""
 
+    # a getter function to get the width
     @property
-
-        """width, height, x, y must be an integer
-        if not raise TypeError"""
-        """get and set the the parameter of the class using getter and setter"""
-        #a getter function to get the width
     def width(self):
         return self.__width
         #a setter function
@@ -57,7 +56,7 @@ class Rectangle(Base):
         return slef.__y
     @y.setter
     def y(self, y):
-        if y is not in [int]:
+        if y is not int:
             raise TypeError("y must be an integer")
         if y <= 0:
             raise ValueError("y must be > 0")
@@ -71,7 +70,7 @@ class Rectangle(Base):
 
     def display(self):
         for i in range(self.width):
-            for j in range(self.hr=eight):
+            for j in range(self.height):
                 print("#", end="")
             print()
 

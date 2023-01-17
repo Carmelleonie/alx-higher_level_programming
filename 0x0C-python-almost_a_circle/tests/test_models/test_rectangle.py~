@@ -3,74 +3,47 @@
 
 import unittest
 import sys
-import io
+import os
 from models.base import Base
 from models.rectangle import Rectangle
 from models.square import Square
 
+class Test_Rectangle(unittest.TestCase):
+    def test_width_invalid_value(self):
+        with self.assertRaises(ValueError, "width must be > 0"):
+            Rectangle(-42, 4)
+        with self.assertRaises(ValueError, "width must be > 0"):
+            Rectangle(0, 4)
+    
+#area() function test
+    def test_area(self):
+        self.assertEqual(Rectangle(5, 6).area(), 30)
+    def test_area(self):
+        self.assertEqual(Rectangle(5, 5).area(), 25)
 
-class TestingRectangle(unittest.TestCase):
-    """class for Test Rectangle"""
 
-    # RECTANGLE WIDTH CHECKER
-    def test_width_few_args(self):
-            """Width Rectangle"""
-            Base._Base__nb_objects = 0
-            with self.assertRaises(TypeError):
-                r0 = Rectangle(1)
+#str() function
+    def test_str_str_method(self):
+        expected = "[Rectangle] (3) 6/9 - 5/2"
+        self.assertEqual(Rectangle(5, 2, 6, 9, 89).__str__(), expected)
 
-    def test_width_string(self):
-            """Width Rectangle"""
-            Base._Base__nb_objects = 0
-            with self.assertRaises(TypeError):
-                r1 = Rectangle("hello", 2)
+    def test_str_str(self):
+        expected = "[Rectangle] (3) 0/0 - 3/4"
+        self.assertEqual(str(Rectangle(3, 4)), expected)
 
-    def test_width_list(self):
-            """Width Rectangle"""
-            Base._Base__nb_objects = 0
-            with self.assertRaises(TypeError):
-                r2 = Rectangle([9, 6], 2)
+    def test_str_str_method_with_args(self):
+        with self.assertRaises(TypeError):
+            Rectangle(2, 4).__str__(42)
+#dictonary
+    def test_to_dictionary_basic(self):
+        r = Rectangle(5, 4, 4, 2, 3)
+        expected = {'width': 5, 'height': 4, 'x': 4, 'y': 2, 'id': 4}
+        self.assertDictEqual(r.to_dictionary(), expected)
 
-    def test_width_tuple(self):
-            """Width Rectangle"""
-            Base._Base__nb_objects = 0
-            with self.assertRaises(TypeError):
-                r3 = Rectangle((7, 3), 4)
+    def test_to_dictionary_basic_with_args(self):
+        with self.assertRaises(TypeError):
+            Rectangle(2, 4, 20, 2, 34).to_dictionary(34)
 
-    def test_width_dictionary(self):
-            """Width Rectangle"""
-            Base._Base__nb_objects = 0
-            with self.assertRaises(TypeError):
-                r4 = Rectangle({'k': 8}, 5)
 
-    def test_width_zero(self):
-            """Width Rectangle"""
-            Base._Base__nb_objects = 0
-            with self.assertRaises(ValueError):
-                r5 = Rectangle(0, 6)
-
-    def test_width_negative(self):
-            """Width Rectangle"""
-            Base._Base__nb_objects = 0
-            with self.assertRaises(ValueError):
-                r6 = Rectangle(-7, 8)
-
-    def test_width_float(self):
-            """Width Rectangle"""
-            Base._Base__nb_objects = 0
-            with self.assertRaises(TypeError):
-                r7 = Rectangle(4.5, 9)
-
-    def test_width_nan(self):
-            """Width Rectangle"""
-            Base._Base__nb_objects = 0
-            with self.assertRaises(TypeError):
-                r8 = Rectangle(float('NaN'), 7)
-
-    def test_width_inf(self):
-            """Width Rectangle"""
-            Base._Base__nb_objects = 0
-            with self.assertRaises(TypeError):
-                r9 = Rectangle(float('inf'), 7)
 if __name__ == "__main__":
     unittest.main()
