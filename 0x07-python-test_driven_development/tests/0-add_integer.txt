@@ -1,0 +1,27 @@
+The ``0-add_integer`` module
+======================
+
+Using ``add_integer``
+-------------------
+
+First import ``add_integer`` from the ``0-add_integer`` module:
+
+    >>> add_integer = __import__('0-add_integer').add_integer
+    
+Now use it:
+
+    >>> add_integer(6, 2)
+    8
+
+    >>> add_integer(5, -1)
+    4
+
+    >>> add_integer(float('inf'), 7)
+    Traceback (most recent call last):
+        ...
+    TypeError: a must be an integer
+
+    >>> add_integer(2, float('inf'))
+    Traceback (most recent call last):
+        ...
+    TypeError: b must be an integer
