@@ -8,9 +8,13 @@ This function is about an empty class Rectangle that defines a rectangle
 
 class Rectangle():
     """Defines a rectangle."""
+
+    number_of_instances = 0
+
     def __init__(self, width=0, height=0):
         self.__width = width
         self.__height = height
+        type(self).number_of_instances += 1
 
     @property
     def width(self):
@@ -61,5 +65,7 @@ class Rectangle():
     def __repr__(self):
         return f'Rectangle({self.width}, {self.height})'
 
+
     def __del__(self):
         print("Bye rectangle...")
+        type(self).number_of_instances -= 1
