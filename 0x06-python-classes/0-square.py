@@ -5,4 +5,5 @@
 
 
 class Square():
+    """Square, an empty class"""
     pass
