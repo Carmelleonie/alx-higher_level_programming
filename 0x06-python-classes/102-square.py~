@@ -26,7 +26,7 @@ class Square():
         """ that returns the current square area"""
         return self.__size ** 2
 
-    def __eq__(self, other):
+     def __eq__(self, other):
         return self.area() == other.area()
 
     def __ne__(self, other):
