@@ -1,1 +1,2 @@
-Write a class Square that defines a square by: (based on 5-square.py)
+Write the Python class MagicClass that does exactly the same as the following Python bytecode:
+
