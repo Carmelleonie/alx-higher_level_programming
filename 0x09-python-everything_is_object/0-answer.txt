@@ -1,4 +1,1 @@
-#!/usr/bin/python3
-
-"""To check the type of an object"""
 type
