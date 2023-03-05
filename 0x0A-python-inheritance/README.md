@@ -1,1 +1,1 @@
-Write an empty class BaseGeometry.
+Write a class Rectangle that inherits from BaseGeometry (7-base_geometry.py).
