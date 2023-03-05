@@ -9,10 +9,32 @@ from models.rectangle import Rectangle
 from models.square import Square
 
 class Test_Rectangle(unittest.TestCase):
+     types = [
+        None,
+        "Betty Holberton",
+        3.14,
+        2j,
+        ["Betty", "Holberton"],
+        ("Betty", "Holberton"),
+        range(42),
+        {"first": "Betty", "last": "Holberton"},
+        {"Betty", "Holberton"},
+        frozenset({"Betty", "Holberton"}),
+        True,
+        b"Betty Holberton",
+        bytearray(42),
+        memoryview(bytes(42))
+    ]
+    def test_width_invalid_type(self):
+        for type in self.types:
+            with self.subTest(type=type):
+                with self.assertRaisesRegex(
+                        TypeError, "width must be an integer"):
+                    Rectangle(type, 4)
     def test_width_invalid_value(self):
-        with self.assertRaises(ValueError, "width must be > 0"):
+        with self.assertRaisesRegex(ValueError, "width must be > 0"):
             Rectangle(-42, 4)
-        with self.assertRaises(ValueError, "width must be > 0"):
+        with self.assertRaisesRegex(ValueError, "width must be > 0"):
             Rectangle(0, 4)
     
 #area() function test
