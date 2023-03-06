@@ -1,1 +1,1 @@
-cat 0-list_databases.sql | mysql -hlocalhost -uroot -p
+Write a script that lists all databases of your MySQL server.
