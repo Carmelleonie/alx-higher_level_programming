@@ -1,1 +1,1 @@
-Write a script that prints the first argument passed to it:
+Write a script that prints two arguments passed to it, in the following format: “ is ”
