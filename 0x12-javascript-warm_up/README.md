@@ -1,1 +1,1 @@
-Write a script that prints two arguments passed to it, in the following format: “ is ”
+Write a function that returns the addition of 2 integers.

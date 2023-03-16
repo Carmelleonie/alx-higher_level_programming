@@ -1,0 +1,6 @@
+#!/usr/bin/node
+// A function that return the sum of two numbers
+
+function add(num1, num2) {
+    return num1 + num2;
+}
