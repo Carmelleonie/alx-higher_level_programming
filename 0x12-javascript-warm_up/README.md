@@ -1,1 +1,1 @@
-Update this script to replace the value 12 with 89:
+Write a script that searches the second biggest integer in the list of arguments.
