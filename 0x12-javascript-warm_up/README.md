@@ -1,1 +1,3 @@
-Write a script that searches the second biggest integer in the list of arguments.
+
+Score: 0.0% (Checks completed: 0.0%)
+
