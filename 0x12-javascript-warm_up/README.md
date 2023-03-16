@@ -1,1 +1,1 @@
-Write a function that returns the addition of 2 integers.
+Write a script that prints the addition of 2 integers
