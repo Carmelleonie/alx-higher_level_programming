@@ -12,7 +12,7 @@ if __name__ == "__main__":
 
     db = MySQLdb.connect(user=mySQL_u, passwd=mySQL_p, db=db_name)
     cur = db.cursor()
-    cur = db.cursor()
+
     cur.execute("SELECT c.id, c.name, s.name \
                  FROM cities c INNER JOIN states s \
                  ON c.state_id = s.id \
