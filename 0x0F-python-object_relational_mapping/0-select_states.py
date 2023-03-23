@@ -8,7 +8,7 @@ if __name__ == "__main__":
     sql_passwd = argv[2]
     sql_db = argv[3]
 
-    db= MySQLdb.connect(user="sql_user", passwd="sql_passwd", db="sql_db")
+    db= MySQLdb.connect(user=sql_user, passwd=sql_passwd, db=sql_db)
     cur= db.cursor()
     cur.execute("SELECT * FROM states ORDER BY id")
     rows = cur.fetchall()
