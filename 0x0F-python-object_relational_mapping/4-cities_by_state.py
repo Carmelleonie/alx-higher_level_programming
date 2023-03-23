@@ -6,8 +6,12 @@ import sys
 import MySQLdb
 
 if __name__ == "__main__":
+    mySQL_u = sys.argv[1]
+    mySQL_p = sys.argv[2]
+    db_name = sys.argv[3]
 
-    db = MySQLdb.connect(user="{}", passwd="{}", db="{}".format(sys.argv[1], sys.argv[2], sys.argv[3]))
+    db = MySQLdb.connect(user=mySQL_u, passwd=mySQL_p, db=db_name)
+    cur = db.cursor()
     cur = db.cursor()
     cur.execute("SELECT c.id, c.name, s.name \
                  FROM cities c INNER JOIN states s \
