@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """
-Write a script that lists all State objects
-that contain the letter a from the database hbtn_0e_6_usa
+Write a script that deletes all State objects with a name
+containing the letter a from the database hbtn_0e_6_usa
 """
 
 import sys
@@ -24,7 +24,7 @@ if __name__ == "__main__":
 
     session = Session(bind=engine)
 
-    q = session.query(State).filter(State.name.like('%a%')).order_by(State.id)
+    q = session.query(State).filter(State.name.like('%a%'))
+    q.delete(synchronize_session=False)
 
-    for instance in q:
-        print("{}: {}".format(instance.id, instance.name))
+    session.commit()

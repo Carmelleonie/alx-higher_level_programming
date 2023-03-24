@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """
-Write a script that lists all State objects
-that contain the letter a from the database hbtn_0e_6_usa
+Write a Python file similar to model_state.py named
+model_city.py that contains the class definition of a City.
 """
 
 import sys
@@ -9,6 +9,7 @@ from sqlalchemy import (create_engine)
 from sqlalchemy.orm import Session
 from sqlalchemy.engine.url import URL
 from model_state import Base, State
+from model_city import City
 
 
 if __name__ == "__main__":
@@ -24,7 +25,7 @@ if __name__ == "__main__":
 
     session = Session(bind=engine)
 
-    q = session.query(State).filter(State.name.like('%a%')).order_by(State.id)
+    q = session.query(City, State).filter(City.state_id == State.id)
 
-    for instance in q:
-        print("{}: {}".format(instance.id, instance.name))
+    for city, state in q:
+        print("{}: ({}) {}".format(state.name, city.id, city.name))
