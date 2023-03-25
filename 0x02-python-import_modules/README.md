@@ -1,1 +1,1 @@
-Write a program that prints the number of and the list of its arguments.
+./5-variable_load.py
