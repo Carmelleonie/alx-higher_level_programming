@@ -1,3 +1,7 @@
 #!/usr/bin/node
 // A script that prints the first argument passed to it
-console.log(typeof process.argv[2] === 'undefined' ? 'No argument' : process.argv[2]);
+if (process.argv[2] === undefined) {
+  console.log('No argument');
+} else {
+  console.log(process.argv[2]);
+}
