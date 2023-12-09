@@ -7,5 +7,4 @@ def weight_average(my_list=[]):
     for i in my_list:
         mark += (i[0] * i[1])
         coef += i[1]
-        
     return mark / coef
