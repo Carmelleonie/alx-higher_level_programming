@@ -1,10 +1,9 @@
 #!/usr/bin/pyhton3
+from functools import reduce
 def weight_average(my_list=[]):
     if len(my_list) == 0:
         return 0
-    mark = 0
-    coef = 0
-    for i in my_list:
-        mark += (i[0] * i[1])
-        coef += i[1]
-    return mark / coef
+    tuple_2 = [tuple_t[1] for tuple_t in my_list]
+    div = reduce(lambda a, b: a + b, tuple_2)
+    result = reduce(lambda x, y: x + y, (list(map(lambda tuple_t: tuple_t[0] * tuple_t[1], my_list)))) / div
+    return result
