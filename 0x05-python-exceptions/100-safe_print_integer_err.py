@@ -9,4 +9,4 @@ def safe_print_integer_err(value):
         else:
             return Fasle
     except ValueError as e:
-        print(e, file=sys.stderr)
+        sys.stderr.write(f"Exception{e}\n")
