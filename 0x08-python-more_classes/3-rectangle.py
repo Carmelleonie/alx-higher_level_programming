@@ -54,7 +54,7 @@ class Rectangle():
         rectangle_str = ""
         for i in range(self.height):
             rectangle_str += "#" * self.width
-            if i != self.height - 1:
+            if i != self.width - 1:
                 rectangle_str += "\n"
         return rectangle_str
 
