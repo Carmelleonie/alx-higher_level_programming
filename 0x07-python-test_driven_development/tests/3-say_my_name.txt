@@ -16,12 +16,13 @@ Now use it:
     >>> say_my_name("Carene", "Carine")
     My name is Carene Carine
 
-    >>> say_my_name(float('inf'), "Waren")
+    >>> say_my_name(2, "Waren")
     Traceback (most recent call last):
         ...
     TypeError: first_name must be a string
 
-    >>> say_my_name("Sabrina", float('inf'))
+    >>> say_my_name("Sabrina", 12.6)
     Traceback (most recent call last):
         ...
     TypeError: last_name must be a string
+

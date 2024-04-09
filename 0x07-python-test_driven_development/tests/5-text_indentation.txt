@@ -1,0 +1,22 @@
+This function print each sentence in the text
+=============================================
+
+Using ``text_indentation``
+--------------------------
+
+Import ``text_indentation`` from ``5-text_indentation``
+
+And then use it
+
+    >>> text_indentation = __import__('5-text_indentation').text_indentation
+
+    >>> text = "Henry is a data analyst. He is 27. What does he do after his job ?"
+    
+    >>> text_indentation(text) 
+    Henry is a data analyst.
+    <BLANKLINE>
+     He is 27.
+    <BLANKLINE>
+     What does he do after his job ?
+    <BLANKLINE>
+
