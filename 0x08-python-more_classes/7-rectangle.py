@@ -1,8 +1,15 @@
 #!/usr/bin/python3
 
+
+"""
+More advanced features about OOp in python
+"""
+
+
 class Rectangle:
     """Rectangle class and its mathematic properties"""
-    
+
+
     """Public class attribute"""
     number_of_instances = 0
     print_symbol = "#"
@@ -48,15 +55,14 @@ class Rectangle:
 
     """A design of the rectangle"""
     def __str__(self):
-        for i in range(self.__height):
-            wid_des = []
-            rec_des = []
-            for j in range(self.__width):
-                wid_des.append(Rectangle.print_symbol)
-            rec_des.append(wid_des)
-            if i != self.__height - 1:
-                wid_des.append("\n")
-        return ("".join(wid_des))
+        if self.width == 0 or self.height == 0:
+            return ''
+        rectangle_str = ""
+        for i in range(self.height):
+            rectangle_str += Rectangle.print_symbol * self.width
+            if i != self.height - 1:
+                rectangle_str += "\n"
+        return rectangle_str
 
     def __repr__(self):
         return "Rectangle({}, {})".format(self.__width, self.__height)
