@@ -55,14 +55,14 @@ class Rectangle:
 
     """A design of the rectangle"""
     def __str__(self):
-        if self.width == 0 or self.height == 0:
+        if self.__width == 0 or self.__height == 0:
             return ''
-        rectangle_str = ""
-        for i in range(self.height):
-            rectangle_str += Rectangle.print_symbol * self.width
-            if i != self.height - 1:
-                rectangle_str += "\n"
-        return rectangle_str
+        rectangle = []
+        for i in range(self.__height):
+            [rectangle.append(str(self.print_symbol)) for j in range(self.__width)]
+            if i != self.__height - 1:
+                rectangle.append("\n")
+        return ("".join(rectangle))
 
     def __repr__(self):
         return "Rectangle({}, {})".format(self.__width, self.__height)
