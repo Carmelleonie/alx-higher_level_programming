@@ -1,0 +1,9 @@
+The unittest example
+====================
+
+The BaseGeometry class
+----------------------
+
+    >>> import unittest
+    >>> class TestBaseGeometry(unittest.TestCase):
+            
