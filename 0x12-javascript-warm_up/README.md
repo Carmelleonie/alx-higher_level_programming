@@ -1,3 +1,1 @@
-
-Score: 0.0% (Checks completed: 0.0%)
-
+0x12-javascript-warm_up
