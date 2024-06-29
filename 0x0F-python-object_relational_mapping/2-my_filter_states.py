@@ -4,19 +4,17 @@
 """
 import sys
 import MySQLdb
-
-if __name__ == "__main__":
-    mySQL_u = sys.argv[1]
-    mySQL_p = sys.argv[2]
-    db_name = sys.argv[3]
-
-    # By default, it will connect to localhost:3306
-    db = MySQLdb.connect(user=mySQL_u, passwd=mySQL_p, db=db_name)
+if __name__ == '__main__':
+    user_name = sys.argv[1]
+    password = sys.argv[2]
+    database = sys.argv[3]
+    state_name = sys.argv[4]
+    
+    db = MySQLdb.connect(user=user_name, passwd=password, db=database)
     cur = db.cursor()
+    cur.execute("SELECT * FROM states WHERE states.name = %s ORDER BY states.id".format(state_name))
+    res = cur.fetchall()
 
-    cur.execute("SELECT * FROM states WHERE name LIKE BINARY '{}' ORDER BY id"
-                .format(sys.argv[4]))
-    rows = cur.fetchall()
-
-    for row in rows:
+    for row in res:
         print(row)
+

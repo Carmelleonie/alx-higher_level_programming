@@ -5,30 +5,21 @@ the name passed as argument from the database hbtn_0e_6_usa
 """
 
 import sys
-from sqlalchemy import (create_engine)
-from sqlalchemy.orm import Session
-from sqlalchemy.engine.url import URL
 from model_state import Base, State
+from sqlalchemy import text
+from sqlalchemy import create_engine
+from sqlalchemy.orm import sessionmaker
 
-
-if __name__ == "__main__":
-    mySQL_u = sys.argv[1]
-    mySQL_p = sys.argv[2]
-    db_name = sys.argv[3]
-
-    st_name = sys.argv[4]
-
-    url = {'drivername': 'mysql+mysqldb', 'host': 'localhost',
-           'username': mySQL_u, 'password': mySQL_p, 'database': db_name}
-
-    engine = create_engine(URL(**url), pool_pre_ping=True)
+if __name__ == '__main__':
+    engine = create_engine('mysql+mysqldb://{}:{}@localhost/{}'.format(sys.argv[1], sys.argv[2], sys.argv[3]), pool_pre_ping=True)
     Base.metadata.create_all(engine)
+    Session = sessionmaker(bind=engine)
+    session = Session()
 
-    session = Session(bind=engine)
-
-    q = session.query(State).filter(State.name == st_name).order_by(State.id)
-
-    if q.first():
-        print(q.first().id)
+    query = session.query(State).filter(text("name=:name")).params(name=sys.argv[4]).all()
+    if query:
+        for row in query:
+            print(row.id)
     else:
-        print("Not found")
+        print("Not Found")
+

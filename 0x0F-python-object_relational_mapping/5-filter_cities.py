@@ -2,25 +2,22 @@
 """A script that takes in the name of a state as an argument
     and lists all cities of that state, using the database hbtn_0e_4_usa
 """
-import sys
 import MySQLdb
+import sys
 
-if __name__ == "__main__":
-    mySQL_u = sys.argv[1]
-    mySQL_p = sys.argv[2]
-    db_name = sys.argv[3]
-
+if __name__ == '__main__':
+    user_name = sys.argv[1]
+    password = sys.argv[2]
+    database = sys.argv[3]
     state_name = sys.argv[4]
 
-    db = MySQLdb.connect(user=mySQL_u, passwd=mySQL_p, db=db_name)
+    db = MySQLdb.connect(user=user_name, passwd=password, db=database)
     cur = db.cursor()
+    cur.execute("SELECT cities.name FROM cities INNER JOIN states ON cities.id = states.id WHERE states.name = %s ORDER BY cities.id", (state_name, ))
+    
+    res = cur.fetchall()
 
-    cur.execute("SELECT c.name \
-                 FROM cities c INNER JOIN states s \
-                 ON c.state_id = s.id WHERE s.name = %s\
-                 ORDER BY c.id", (state_name, ))
-    rows = cur.fetchall()
-
-    for i in range(len(rows)):
-        print(rows[i][0], end=", " if i + 1 < len(rows) else "")
+    for idx in range(len(res)):
+        print(res[idx][0], end=", " if idx + 1 < len(res) else "")
     print("")
+
